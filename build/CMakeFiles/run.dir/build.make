@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yuanhao/lvgl_workspace/lv_port_pc_vscode
+CMAKE_SOURCE_DIR = /home/yuanhao/lvgl_workspace/my_lvgl_simulator
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/build
+CMAKE_BINARY_DIR = /home/yuanhao/lvgl_workspace/my_lvgl_simulator/build
 
 # Utility rule file for run.
 
@@ -82,6 +82,6 @@ CMakeFiles/run.dir/clean:
 .PHONY : CMakeFiles/run.dir/clean
 
 CMakeFiles/run.dir/depend:
-	cd /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yuanhao/lvgl_workspace/lv_port_pc_vscode /home/yuanhao/lvgl_workspace/lv_port_pc_vscode /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/build /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/build /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/build/CMakeFiles/run.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/yuanhao/lvgl_workspace/my_lvgl_simulator/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yuanhao/lvgl_workspace/my_lvgl_simulator /home/yuanhao/lvgl_workspace/my_lvgl_simulator /home/yuanhao/lvgl_workspace/my_lvgl_simulator/build /home/yuanhao/lvgl_workspace/my_lvgl_simulator/build /home/yuanhao/lvgl_workspace/my_lvgl_simulator/build/CMakeFiles/run.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/run.dir/depend
 

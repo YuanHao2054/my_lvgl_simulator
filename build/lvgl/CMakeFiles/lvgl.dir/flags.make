@@ -5,13 +5,13 @@
 # compile C with /usr/bin/cc
 ASM_DEFINES = -DLV_CONF_INCLUDE_SIMPLE -DLV_LVGL_H_INCLUDE_SIMPLE -D__ASSEMBLY__
 
-ASM_INCLUDES = -I/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/main/inc -I/home/yuanhao/lvgl_workspace/lv_port_pc_vscode -I/usr/include/SDL2 -isystem /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl
+ASM_INCLUDES = -I/home/yuanhao/lvgl_workspace/my_lvgl_simulator/main/inc -I/home/yuanhao/lvgl_workspace/my_lvgl_simulator -I/usr/include/SDL2 -isystem /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl
 
 ASM_FLAGS = 
 
 C_DEFINES = -DLV_CONF_INCLUDE_SIMPLE -DLV_LVGL_H_INCLUDE_SIMPLE
 
-C_INCLUDES = -I/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/main/inc -I/home/yuanhao/lvgl_workspace/lv_port_pc_vscode -I/usr/include/SDL2 -isystem /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl
+C_INCLUDES = -I/home/yuanhao/lvgl_workspace/my_lvgl_simulator/main/inc -I/home/yuanhao/lvgl_workspace/my_lvgl_simulator -I/usr/include/SDL2 -isystem /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl
 
 C_FLAGS =  -march=native -std=gnu99
 

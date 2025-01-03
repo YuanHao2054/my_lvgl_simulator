@@ -1,15 +1,15 @@
 lvgl/CMakeFiles/lvgl.dir/src/draw/vg_lite/lv_vg_lite_decoder.c.o: \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/lv_vg_lite_decoder.c \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/lv_vg_lite_decoder.c \
  /usr/include/stdc-predef.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/lv_vg_lite_decoder.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../lv_image_decoder.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../lv_conf_internal.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../lv_conf_kconfig.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lv_conf.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../lv_draw_buf.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/lv_area.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/../lv_conf_internal.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/lv_types.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/lv_vg_lite_decoder.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../lv_image_decoder.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../lv_conf_internal.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../lv_conf_kconfig.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lv_conf.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../lv_draw_buf.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/lv_area.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/../lv_conf_internal.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/lv_types.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -37,30 +37,30 @@ lvgl/CMakeFiles/lvgl.dir/src/draw/vg_lite/lv_vg_lite_decoder.c.o: \
  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/lv_color.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/lv_assert.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/lv_log.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/../stdlib/lv_mem.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/../stdlib/../lv_conf_internal.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/../stdlib/lv_string.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/../stdlib/../misc/lv_types.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/lv_math.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/lv_palette.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/lv_color.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/lv_color_op.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../stdlib/lv_string.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../lv_image_dsc.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/lv_fs.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/lv_types.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/cache/lv_cache.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/cache/lv_cache_entry.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/cache/../../osal/lv_os.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/cache/../../osal/../lv_conf_internal.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/cache/../../osal/../misc/lv_types.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/cache/../../osal/lv_os_none.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/cache/../lv_types.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/cache/lv_cache_private.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/cache/_lv_cache_lru_rb.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/cache/lv_image_cache.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/cache/../../lv_conf_internal.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/vg_lite/../../misc/cache/lv_image_header_cache.h
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/lv_color.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/lv_assert.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/lv_log.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/../stdlib/lv_mem.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/../stdlib/../lv_conf_internal.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/../stdlib/lv_string.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/../stdlib/../misc/lv_types.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/lv_math.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/lv_palette.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/lv_color.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/lv_color_op.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../stdlib/lv_string.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../lv_image_dsc.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/lv_fs.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/lv_types.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/cache/lv_cache.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/cache/lv_cache_entry.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/cache/../../osal/lv_os.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/cache/../../osal/../lv_conf_internal.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/cache/../../osal/../misc/lv_types.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/cache/../../osal/lv_os_none.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/cache/../lv_types.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/cache/lv_cache_private.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/cache/_lv_cache_lru_rb.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/cache/lv_image_cache.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/cache/../../lv_conf_internal.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/vg_lite/../../misc/cache/lv_image_header_cache.h

@@ -1,15 +1,15 @@
 lvgl/CMakeFiles/lvgl.dir/src/others/monkey/lv_monkey.c.o: \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/lv_monkey.c \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/lv_monkey.c \
  /usr/include/stdc-predef.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/lv_monkey.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/../../lv_conf_internal.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/../../lv_conf_kconfig.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lv_conf.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/../../indev/lv_indev.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/../../indev/../core/lv_group.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/../../indev/../core/../lv_conf_internal.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/../../indev/../core/../misc/lv_types.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/../../indev/../core/../misc/../lv_conf_internal.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/lv_monkey.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/../../lv_conf_internal.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/../../lv_conf_kconfig.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lv_conf.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/../../indev/lv_indev.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/../../indev/../core/lv_group.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/../../indev/../core/../lv_conf_internal.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/../../indev/../core/../misc/lv_types.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/../../indev/../core/../misc/../lv_conf_internal.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -37,15 +37,15 @@ lvgl/CMakeFiles/lvgl.dir/src/others/monkey/lv_monkey.c.o: \
  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/../../indev/../core/../misc/lv_ll.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/../../indev/../core/../misc/lv_types.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/../../indev/../misc/lv_area.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/../../indev/../misc/../lv_conf_internal.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/../../indev/../misc/lv_types.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/../../indev/../misc/lv_timer.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/../../indev/../misc/../tick/lv_tick.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/../../indev/../misc/../tick/../lv_conf_internal.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/../../indev/../misc/../tick/../misc/lv_types.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/../../indev/../misc/lv_ll.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/../../indev/../misc/lv_event.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/others/monkey/../../indev/../misc/lv_array.h
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/../../indev/../core/../misc/lv_ll.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/../../indev/../core/../misc/lv_types.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/../../indev/../misc/lv_area.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/../../indev/../misc/../lv_conf_internal.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/../../indev/../misc/lv_types.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/../../indev/../misc/lv_timer.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/../../indev/../misc/../tick/lv_tick.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/../../indev/../misc/../tick/../lv_conf_internal.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/../../indev/../misc/../tick/../misc/lv_types.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/../../indev/../misc/lv_ll.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/../../indev/../misc/lv_event.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/others/monkey/../../indev/../misc/lv_array.h

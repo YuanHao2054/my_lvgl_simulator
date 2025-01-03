@@ -1,14 +1,14 @@
 lvgl/CMakeFiles/lvgl.dir/src/drivers/evdev/lv_evdev.c.o: \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/drivers/evdev/lv_evdev.c \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/drivers/evdev/lv_evdev.c \
  /usr/include/stdc-predef.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/drivers/evdev/lv_evdev.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/drivers/evdev/../../indev/lv_indev.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/drivers/evdev/../../indev/../core/lv_group.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/drivers/evdev/../../indev/../core/../lv_conf_internal.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/drivers/evdev/../../indev/../core/../lv_conf_kconfig.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lv_conf.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/drivers/evdev/../../indev/../core/../misc/lv_types.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/drivers/evdev/../../indev/../core/../misc/../lv_conf_internal.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/drivers/evdev/lv_evdev.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/drivers/evdev/../../indev/lv_indev.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/drivers/evdev/../../indev/../core/lv_group.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/drivers/evdev/../../indev/../core/../lv_conf_internal.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/drivers/evdev/../../indev/../core/../lv_conf_kconfig.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lv_conf.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/drivers/evdev/../../indev/../core/../misc/lv_types.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/drivers/evdev/../../indev/../core/../misc/../lv_conf_internal.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -36,15 +36,15 @@ lvgl/CMakeFiles/lvgl.dir/src/drivers/evdev/lv_evdev.c.o: \
  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/drivers/evdev/../../indev/../core/../misc/lv_ll.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/drivers/evdev/../../indev/../core/../misc/lv_types.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/drivers/evdev/../../indev/../misc/lv_area.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/drivers/evdev/../../indev/../misc/../lv_conf_internal.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/drivers/evdev/../../indev/../misc/lv_types.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/drivers/evdev/../../indev/../misc/lv_timer.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/drivers/evdev/../../indev/../misc/../tick/lv_tick.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/drivers/evdev/../../indev/../misc/../tick/../lv_conf_internal.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/drivers/evdev/../../indev/../misc/../tick/../misc/lv_types.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/drivers/evdev/../../indev/../misc/lv_ll.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/drivers/evdev/../../indev/../misc/lv_event.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/drivers/evdev/../../indev/../misc/lv_array.h
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/drivers/evdev/../../indev/../core/../misc/lv_ll.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/drivers/evdev/../../indev/../core/../misc/lv_types.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/drivers/evdev/../../indev/../misc/lv_area.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/drivers/evdev/../../indev/../misc/../lv_conf_internal.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/drivers/evdev/../../indev/../misc/lv_types.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/drivers/evdev/../../indev/../misc/lv_timer.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/drivers/evdev/../../indev/../misc/../tick/lv_tick.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/drivers/evdev/../../indev/../misc/../tick/../lv_conf_internal.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/drivers/evdev/../../indev/../misc/../tick/../misc/lv_types.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/drivers/evdev/../../indev/../misc/lv_ll.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/drivers/evdev/../../indev/../misc/lv_event.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/drivers/evdev/../../indev/../misc/lv_array.h

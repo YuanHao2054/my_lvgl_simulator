@@ -1,13 +1,13 @@
 lvgl/CMakeFiles/lvgl.dir/src/stdlib/rtthread/lv_mem_core_rtthread.c.o: \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/stdlib/rtthread/lv_mem_core_rtthread.c \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/stdlib/rtthread/lv_mem_core_rtthread.c \
  /usr/include/stdc-predef.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/stdlib/rtthread/../lv_mem.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/stdlib/rtthread/../../lv_conf_internal.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/stdlib/rtthread/../../lv_conf_kconfig.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lv_conf.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/stdlib/rtthread/../lv_string.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/stdlib/rtthread/../../misc/lv_types.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/stdlib/rtthread/../../misc/../lv_conf_internal.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/stdlib/rtthread/../lv_mem.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/stdlib/rtthread/../../lv_conf_internal.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/stdlib/rtthread/../../lv_conf_kconfig.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lv_conf.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/stdlib/rtthread/../lv_string.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/stdlib/rtthread/../../misc/lv_types.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/stdlib/rtthread/../../misc/../lv_conf_internal.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \

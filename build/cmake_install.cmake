@@ -1,4 +1,4 @@
-# Install script for directory: /home/yuanhao/lvgl_workspace/lv_port_pc_vscode
+# Install script for directory: /home/yuanhao/lvgl_workspace/my_lvgl_simulator
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/build/lvgl/cmake_install.cmake")
+  include("/home/yuanhao/lvgl_workspace/my_lvgl_simulator/build/lvgl/cmake_install.cmake")
 
 endif()
 
@@ -56,5 +56,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/yuanhao/lvgl_workspace/my_lvgl_simulator/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -1,4 +1,4 @@
-# Install script for directory: /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl
+# Install script for directory: /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -51,7 +51,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/local/include/lvgl/" TYPE DIRECTORY FILES "/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src" FILES_MATCHING REGEX "/[^/]*\\.h$")
+  file(INSTALL DESTINATION "/usr/local/include/lvgl/" TYPE DIRECTORY FILES "/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src" FILES_MATCHING REGEX "/[^/]*\\.h$")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -63,7 +63,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/local/include/lvgl/" TYPE DIRECTORY FILES "/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/examples" FILES_MATCHING REGEX "/[^/]*\\.h$")
+  file(INSTALL DESTINATION "/usr/local/include/lvgl/" TYPE DIRECTORY FILES "/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/examples" FILES_MATCHING REGEX "/[^/]*\\.h$")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -75,42 +75,42 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/usr/local/include/lvgl/" TYPE DIRECTORY FILES "/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/demos" FILES_MATCHING REGEX "/[^/]*\\.h$")
+  file(INSTALL DESTINATION "/usr/local/include/lvgl/" TYPE DIRECTORY FILES "/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/demos" FILES_MATCHING REGEX "/[^/]*\\.h$")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/build/lvgl/lvgl.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/yuanhao/lvgl_workspace/my_lvgl_simulator/build/lvgl/lvgl.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/build/lib/liblvgl.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/yuanhao/lvgl_workspace/my_lvgl_simulator/build/lib/liblvgl.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/lvgl" TYPE FILE FILES "/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lv_conf.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/lvgl" TYPE FILE FILES "/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lv_conf.h")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/build/lib/liblvgl_thorvg.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/yuanhao/lvgl_workspace/my_lvgl_simulator/build/lib/liblvgl_thorvg.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/lvgl" TYPE FILE FILES "/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lv_conf.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/lvgl" TYPE FILE FILES "/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lv_conf.h")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/build/lib/liblvgl_demos.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/yuanhao/lvgl_workspace/my_lvgl_simulator/build/lib/liblvgl_demos.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/lvgl" TYPE FILE FILES "/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lv_conf.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/lvgl" TYPE FILE FILES "/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lv_conf.h")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/build/lib/liblvgl_examples.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/yuanhao/lvgl_workspace/my_lvgl_simulator/build/lib/liblvgl_examples.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/lvgl" TYPE FILE FILES "/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lv_conf.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/lvgl" TYPE FILE FILES "/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lv_conf.h")
 endif()
 

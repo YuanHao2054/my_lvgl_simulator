@@ -1,8 +1,8 @@
 lvgl/CMakeFiles/lvgl.dir/src/libs/tjpgd/tjpgd.c.o: \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/libs/tjpgd/tjpgd.c \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/libs/tjpgd/tjpgd.c \
  /usr/include/stdc-predef.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/libs/tjpgd/tjpgd.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/libs/tjpgd/tjpgdcnf.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/libs/tjpgd/tjpgd.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/libs/tjpgd/tjpgdcnf.h \
  /usr/include/string.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \

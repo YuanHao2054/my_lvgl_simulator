@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DLV_CONF_INCLUDE_SIMPLE -DLV_LVGL_H_INCLUDE_SIMPLE
 
-CXX_INCLUDES = -I/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/main/inc -I/home/yuanhao/lvgl_workspace/lv_port_pc_vscode -I/usr/include/SDL2 -isystem /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/libs/thorvg -isystem /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl
+CXX_INCLUDES = -I/home/yuanhao/lvgl_workspace/my_lvgl_simulator/main/inc -I/home/yuanhao/lvgl_workspace/my_lvgl_simulator -I/usr/include/SDL2 -isystem /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/libs/thorvg -isystem /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl
 
 CXX_FLAGS =  -march=native -std=gnu++17
 

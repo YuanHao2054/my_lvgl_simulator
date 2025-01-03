@@ -1,5 +1,5 @@
 lvgl/CMakeFiles/lvgl.dir/src/libs/qrcode/qrcodegen.c.o: \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/libs/qrcode/qrcodegen.c \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/libs/qrcode/qrcodegen.c \
  /usr/include/stdc-predef.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
@@ -52,20 +52,20 @@ lvgl/CMakeFiles/lvgl.dir/src/libs/qrcode/qrcodegen.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/strings.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/libs/qrcode/qrcodegen.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/libs/qrcode/qrcodegen.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/libs/qrcode/../../misc/lv_assert.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/libs/qrcode/../../misc/../lv_conf_internal.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/libs/qrcode/../../misc/../lv_conf_kconfig.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lv_conf.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/libs/qrcode/../../misc/lv_log.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/libs/qrcode/../../misc/lv_types.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/libs/qrcode/../../misc/lv_assert.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/libs/qrcode/../../misc/../lv_conf_internal.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/libs/qrcode/../../misc/../lv_conf_kconfig.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lv_conf.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/libs/qrcode/../../misc/lv_log.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/libs/qrcode/../../misc/lv_types.h \
  /usr/include/inttypes.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/libs/qrcode/../../misc/../stdlib/lv_mem.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/libs/qrcode/../../misc/../stdlib/../lv_conf_internal.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/libs/qrcode/../../misc/../stdlib/lv_string.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/libs/qrcode/../../misc/../stdlib/../misc/lv_types.h
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/libs/qrcode/../../misc/../stdlib/lv_mem.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/libs/qrcode/../../misc/../stdlib/../lv_conf_internal.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/libs/qrcode/../../misc/../stdlib/lv_string.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/libs/qrcode/../../misc/../stdlib/../misc/lv_types.h

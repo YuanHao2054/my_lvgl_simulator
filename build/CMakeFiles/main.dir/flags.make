@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -DLV_CONF_INCLUDE_SIMPLE -DLV_LVGL_H_INCLUDE_SIMPLE
 
-C_INCLUDES = -I/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/main/inc -I/home/yuanhao/lvgl_workspace/lv_port_pc_vscode -I/usr/include/SDL2 -isystem /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl -isystem /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/examples -isystem /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/demos -isystem /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/libs/thorvg
+C_INCLUDES = -I/home/yuanhao/lvgl_workspace/my_lvgl_simulator/main/inc -I/home/yuanhao/lvgl_workspace/my_lvgl_simulator -I/usr/include/SDL2 -isystem /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl -isystem /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/examples -isystem /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/demos -isystem /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/libs/thorvg
 
 C_FLAGS =  -march=native -std=gnu99
 

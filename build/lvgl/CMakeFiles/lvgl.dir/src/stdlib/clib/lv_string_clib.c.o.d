@@ -1,6 +1,6 @@
 lvgl/CMakeFiles/lvgl.dir/src/stdlib/clib/lv_string_clib.c.o: \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/stdlib/clib/lv_string_clib.c \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/stdlib/clib/lv_string_clib.c \
  /usr/include/stdc-predef.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/stdlib/clib/../../lv_conf_internal.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/stdlib/clib/../../lv_conf_kconfig.h \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lv_conf.h
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/stdlib/clib/../../lv_conf_internal.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/stdlib/clib/../../lv_conf_kconfig.h \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lv_conf.h

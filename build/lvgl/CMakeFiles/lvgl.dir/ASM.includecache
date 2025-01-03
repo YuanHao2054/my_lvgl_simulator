@@ -10,55 +10,55 @@
 my_include.h
 ../my_include.h
 
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lv_conf.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lv_conf.h
 my_include.h
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/my_include.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/my_include.h
 
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/sw/blend/arm2d/lv_blend_arm2d.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/sw/blend/arm2d/lv_blend_arm2d.h
 ../../../../lv_conf_internal.h
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/lv_conf_internal.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/lv_conf_internal.h
 arm_2d.h
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/sw/blend/arm2d/arm_2d.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/sw/blend/arm2d/arm_2d.h
 __arm_2d_impl.h
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/sw/blend/arm2d/__arm_2d_impl.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/sw/blend/arm2d/__arm_2d_impl.h
 
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/sw/blend/helium/lv_blend_helium.S
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/sw/blend/helium/lv_blend_helium.S
 lv_blend_helium.h
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/sw/blend/helium/lv_blend_helium.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/sw/blend/helium/lv_blend_helium.h
 
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/sw/blend/helium/lv_blend_helium.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/sw/blend/helium/lv_blend_helium.h
 Pre_Include_Global.h
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/sw/blend/helium/Pre_Include_Global.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/sw/blend/helium/Pre_Include_Global.h
 lv_conf_cmsis.h
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/sw/blend/helium/lv_conf_cmsis.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/sw/blend/helium/lv_conf_cmsis.h
 ../../../../lv_conf_internal.h
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/lv_conf_internal.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/lv_conf_internal.h
 ../arm2d/lv_blend_arm2d.h
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/sw/blend/arm2d/lv_blend_arm2d.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/sw/blend/arm2d/lv_blend_arm2d.h
 
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/sw/blend/neon/lv_blend_neon.S
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/sw/blend/neon/lv_blend_neon.S
 lv_blend_neon.h
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/sw/blend/neon/lv_blend_neon.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/sw/blend/neon/lv_blend_neon.h
 
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/draw/sw/blend/neon/lv_blend_neon.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/draw/sw/blend/neon/lv_blend_neon.h
 ../../../../lv_conf_internal.h
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/lv_conf_internal.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/lv_conf_internal.h
 
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/lv_conf_internal.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/lv_conf_internal.h
 lv_conf_kconfig.h
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/lv_conf_kconfig.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/lv_conf_kconfig.h
 lv_conf.h
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/lv_conf.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/lv_conf.h
 ../../lv_conf.h
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lv_conf.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lv_conf.h
 my_include.h
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/my_include.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/my_include.h
 
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/lv_conf_kconfig.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/lv_conf_kconfig.h
 sdkconfig.h
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/sdkconfig.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/sdkconfig.h
 esp_attr.h
-/home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/src/esp_attr.h
+/home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/src/esp_attr.h
 nuttx/config.h
 -
 lv_rt_thread_conf.h

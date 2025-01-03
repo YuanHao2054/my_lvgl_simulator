@@ -1,3 +1,3 @@
 lvgl/CMakeFiles/lvgl_examples.dir/examples/porting/lv_port_indev_template.c.o: \
- /home/yuanhao/lvgl_workspace/lv_port_pc_vscode/lvgl/examples/porting/lv_port_indev_template.c \
+ /home/yuanhao/lvgl_workspace/my_lvgl_simulator/lvgl/examples/porting/lv_port_indev_template.c \
  /usr/include/stdc-predef.h
