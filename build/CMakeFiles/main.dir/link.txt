@@ -1,1 +1,0 @@
-/usr/bin/c++  -march=native CMakeFiles/main.dir/main/src/main.c.o CMakeFiles/main.dir/main/src/mouse_cursor_icon.c.o CMakeFiles/main.dir/main/src/mygui.c.o -o ../bin/main  lib/liblvgl.a lib/liblvgl_examples.a lib/liblvgl_demos.a lib/liblvgl_thorvg.a -L/usr/lib/x86_64-linux-gnu  -lSDL2 -lm -lpthread lib/liblvgl.a 
