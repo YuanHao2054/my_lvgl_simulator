@@ -1,6 +1,6 @@
 #include "mygui.h"
 
-/*这个分支主要存放控件学习中的 标签、按钮、开关、复选框*/
+/*这个分支主要存放控件学习中的 进度条、加载器、LED部件、列表部件*/
 
 #define practice1 0
 #define practice2 0
@@ -10,334 +10,146 @@
 #define practice6 0
 #define practice7 0
 
-// lv_obj_t *btn_plus;
-// lv_obj_t *btn_minus;
-// lv_obj_t *btn_stop;
-// lv_obj_t *label_speed;
+lv_obj_t *btn1;
+lv_obj_t *btn2;
+lv_obj_t *btn3;
+lv_obj_t *btn4;
+lv_obj_t *btn5;
+lv_obj_t *btn6;
 
-lv_obj_t *sw;
-lv_obj_t *sw_cool;
-lv_obj_t *sw_heat;
-lv_obj_t *sw_dry;
-
-static void obj_create_sw_cool();
-static void obj_create_sw_heat();
-static void obj_create_sw_dry();
-// static void obj_create_label();
-
-// int speed_val;
-
-// 标签部件：显示文本，例如标题、提示等
+// 进度条部件lv_bar    用于显示当前任务的进度，可以是水平的或者垂直的
 /*
 组成部分：
-主体：lv_part_main
-滚动条：lv_part_scrollbar
-选中的文本：lv_part_selected
-
-标签学习：
-1、如何创建标签部件并设置文本
-2、如何改变文本的样式
-3、当文本长度超过标签的宽度时，怎么显示
-*/
-
-// 按钮部件 lv_btn 和基础对象相比，没有任何新增功能，只是创建出来时的样式不一样
-/*
-组成部分：只有主体 lv_part_main 按钮部件本身不能显示文本，需要在按钮部件上添加标签部件
+主体：进度条的背景 lv_part_main
+指示器：进度条的进度 lv_part_indicator
 
 */
 
-// 开关部件 lv_switch 用于控制某个功能的开启和关闭，可以直接显示被控对象的状态
-/*
-开关部件组成部分:
-主体：lv_part_main
-滑块：lv_part_knob
-指示器：lv_part_indicator
-*/
 
-// 复选框部件 lv_checkbox 常用于选择某个内容的开启或关闭，可以理解为自带标签的开关
+//加载器部件lv_spinner  常用于提示当前任务正在加载
 /*
 组成部分：
-主体：lv_part_main
-勾选框：lv_part_indicator
+主体：加载器的背景 lv_part_main
+指示器：加载器的指示器 lv_part_indicator 是一个圆弧，后续设置加载器样式基本都是设置圆弧的样式
+手柄：加载器的手柄 lv_part_knob
+
 */
 
-lv_obj_t *checkbox1;
+//LED部件 lv_led  用于显示设备的状态
+/*只有一个主体部分lv_part_main */
 
-static void event_cb(lv_event_t *e)
+//列表部件lv_list 常用于多选一，默认会显示多个选项
+/*
+组成部分：
+主体：列表的背景 lv_part_main
+滚动条：列表的滚动条 lv_part_scrollbar
+*/
+
+static void event_list_cb(lv_event_t *e)
 {
-}
-
-// static void event_btn_cb(lv_event_t *e)
-// {
-//     lv_obj_t *target = lv_event_get_target(e);  //获取触发源
-//     lv_event_code_t code = lv_event_get_code(e);
-
-//     if (target == btn_plus)
-//     {
-//         printf("plus\n");
-//         speed_val += 30;
-
-//     }
-//     else if (target == btn_minus)
-//     {
-//         printf("minus\n");
-//         speed_val -= 30;
-//     }
-//     else if (target == btn_stop)
-//     {
-//         printf("stop\n");
-//         speed_val = 0;
-//     }
-
-//     //更新速度值
-//     lv_label_set_text_fmt(label_speed, "Speed: %d", speed_val);
-
-// }
-
-static void event_smart_control_cb(lv_event_t *e)
-{
-    bool state_cool;
-    bool state_heat;
-    bool state_dry;
-
-    lv_obj_t *target = lv_event_get_target(e); // 获取触发源
-
-    if (target == sw_cool) // cool和heat互斥
-    {
-        state_cool = lv_obj_has_state(sw_cool, LV_STATE_CHECKED); // 获取开关的状态  判断当前状态是否为已打开 返回值为bool类型
-        state_heat = lv_obj_has_state(sw_heat, LV_STATE_CHECKED);
-        printf("cool state: %d\n", state_cool);
-        if (state_cool == 1)
-        {
-            lv_obj_clear_state(sw_heat, LV_STATE_CHECKED); // 设置为关闭状态 清除状态
-        }
-    }
-    else if (target == sw_heat)
-    {
-        state_heat = lv_obj_has_state(sw_heat, LV_STATE_CHECKED); // 获取开关的状态  判断当前状态是否为已打开 返回值为bool类型
-        state_cool = lv_obj_has_state(sw_cool, LV_STATE_CHECKED);
-        printf("heat state: %d\n", state_heat);
-        if (state_heat == 1)
-        {
-            lv_obj_clear_state(sw_cool, LV_STATE_CHECKED); // 设置为关闭状态 清除状态
-        }
-    }
-    else if (target == sw_dry)
-    {
-        state_dry = lv_obj_has_state(sw_dry, LV_STATE_CHECKED); // 获取开关的状态  判断当前状态是否为已打开 返回值为bool类型
-        printf("dry state: %d\n", state_dry);
-    }
-}
-
-static void event_checkbox_cb(lv_event_t *e)
-{
-    // 获取触发源
-    lv_obj_t *target = lv_event_get_target(e);
     lv_event_code_t code = lv_event_get_code(e);
-    if (target == checkbox1)
+    lv_obj_t *target = lv_event_get_target(e);
+    if (target == btn1)
     {
-        if (code == LV_EVENT_VALUE_CHANGED)
-        {
-            bool state = lv_obj_has_state(checkbox1, LV_STATE_CHECKED); // 获取复选框的状态  判断当前状态是否为已选中 返回值为bool类型
-            printf("checkbox1 state: %d\n", state);
-        }
+        //获取列表按钮的文本，并打印出来
+        const char *text = lv_list_get_btn_text(lv_obj_get_parent(target), target); //直接通过target获取父对象
+        printf("btn1:%s\n", text);
     }
-}
 
-static void event_menu_cb(lv_event_t *e)
-{
 }
 
 void mygui()
 {
 
 #if practice1
+    // 创建进度条部件
+    lv_obj_t *bar1 = lv_bar_create(lv_scr_act());
+    lv_obj_set_size(bar1, 200, 20); //横向大于纵向，就是横向进度条，反之就是纵向进度条
+    lv_obj_align(bar1, LV_ALIGN_CENTER, 0, 0);
 
-    // 创建一个标签部件
-    lv_obj_t *label = lv_label_create(lv_scr_act());
-    lv_obj_align(label, LV_ALIGN_CENTER, 0, 0);
+    // 设置进度条的值
+    lv_bar_set_range(bar1, 0, 100);  // 设置进度条的范围
+    //lv_bar_set_value(bar1, 70, LV_ANIM_ON); // 设置进度条的值
+    //第三个参数是动画的开关，LV_ANIM_ON表示开启动画，LV_ANIM_OFF表示关闭动画
 
-    // 设置文本的三种方式
+    // 设置动画时间  必须在设置当前值之前设置
+    lv_obj_set_style_anim_time(bar1, 1000, LV_STATE_DEFAULT); // 设置动画时间为1000ms
+    lv_bar_set_value(bar1, 70, LV_ANIM_ON); // 设置进度条的值
 
-    // 直接设置文本： lvgl进行动态内存分配，一般使用这种方式
-    lv_label_set_text(label, "Hello world!Hello world!Hello world!Hello world!\nHello world!Hello world!Hello world!");
-
-    // 静态存贮文本，存在指定的缓冲区
-    // lv_label_set_text_static(label, "Hello world!");
-
-    // 格式化地显示文本，类似于printf
-    // lv_label_set_text_fmt(label, "Hello %s!", "world");
-
-    // 设置文本的样式
-
-    // 1、设置文本样式
-
-    // 背景颜色
-    lv_obj_set_style_bg_color(label, lv_color_hex(0xECD664), LV_STATE_DEFAULT);
-    // 背景透明度默认完全透明
-    lv_obj_set_style_bg_opa(label, 100, LV_STATE_DEFAULT);
-
-    // 设置字体大小
-    lv_obj_set_style_text_font(label, &lv_font_montserrat_24, LV_STATE_DEFAULT);
-    // 使用什么大小的字体，就要到lv_conf.h给对应的宏置1
-
-    // 设置字体的颜色
-    lv_obj_set_style_text_color(label, lv_color_hex(0x258EEA), LV_STATE_DEFAULT);
-
-    // 2、单独设置个别文本的颜色
-
-    // lv_label_set_recolor(label, true); //启用重新着色
-    // lv_label_set_text(label, "Hello #00ff00 world#");
-
-    // !! v9版本的API变动，删除了lv_label_set_recolor函数
-    // 参考 https://github.com/lvgl/lvgl/issues/5352
-
-    // 设置标签部件的大小 默认情况下，如果没有配置，标签部件的大小是根据文本的大小来自动调整的
-
-    // 设置标签部件的大小
-
-    lv_obj_set_size(label, 200, 60);
-
-    // 设置长文本模式
-    lv_label_set_long_mode(label, LV_LABEL_LONG_SCROLL_CIRCULAR);
-
+    //设置模式
+    lv_bar_set_mode(bar1, LV_BAR_MODE_RANGE); // 设置进度条的模式
     /*
-    enum _lv_label_long_mode_t
-    {
-        LV_LABEL_LONG_WRAP, //默认模式，超出的文本会被裁剪
-        LV_LABEL_LONG_DOT,  //超出的文本会被替换为...
-        LV_LABEL_LONG_SCROLL, //来回滚动
-        LV_LABEL_LONG_SCROLL_CIRCULAR, //循环滚动
-        LV_LABEL_LONG_CLIP,  //超出的文本会被裁剪
-    };
+    枚举型变量：
+    LV_BAR_MODE_NORMAL：默认模式 从设定的范围的最小值绘制到当前值
+    LV_BAR_MODE_SYMMETRICAL：从零绘制到指定值，指定值可以小于零
+    LV_BAR_MODE_RANGE： 允许设定起始值，起始值必须小于当前值
     */
 
-    // 文本对齐
-    lv_obj_set_style_text_align(label, LV_TEXT_ALIGN_CENTER, 0);
+    //设置起始值 只有在LV_BAR_MODE_RANGE模式下才有效
+    lv_bar_set_start_value(bar1, 20, LV_ANIM_ON); // 设置起始值
+    //lv_bar_set_value(bar1, 70, LV_ANIM_ON); // 设置当前值，从20加载到70
 
-    // 文本对齐和标签部件对齐的区别
-    /*标签部件对齐是指标签部件相对于其父对象的对齐方式，文本对齐是指文本内容在标签部件内部的对齐方式*/
-
-    // 特殊效果
-
-    // 阴影：创建另一个一模一样内容的标签部件，但是颜色不同，然后偏移一定的距离
-
-    // 从另一个标签部件中获取文本
-    //  char *text = lv_label_get_text(label); 可以作为另一个标签部件的文本参数
-    // 例如：lv_label_set_text(label2, text);
+    //例程 用lv_timer定时器来改变进度条的值
+    //lv_timer_create(回调函数，定时时间，参数) ，在回调函数里面调用lv_bar_set_value(bar1, 70, LV_ANIM_ON);来改变进度条的值
 
 #elif practice2
+    // 创建一个加载器
+    lv_obj_t *spinner1 = lv_spinner_create(lv_scr_act());
+    lv_obj_align(spinner1, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_size(spinner1, 100, 100);
 
-    // // 创建一个按钮部件
-    // lv_obj_t *btn = lv_btn_create(lv_scr_act());
-    // lv_obj_set_size(btn, 100, 50);
-    // lv_obj_align(btn, LV_ALIGN_CENTER, 0, 0);
-    // lv_obj_set_style_bg_color(btn, lv_color_hex(0x258EEA), LV_STATE_PRESSED);
+    //设置样式
+    //圆弧颜色 第三个参数表示设置那一部分的颜色，以及什么时候设置
+    lv_obj_set_style_arc_color(spinner1, lv_color_hex(0x072062), LV_PART_INDICATOR); //加载器部分的颜色
+    lv_obj_set_style_arc_color(spinner1, lv_color_hex(0xF2F2F2), LV_PART_MAIN); //主体部分的颜色
 
-    // lv_obj_add_flag(btn, LV_OBJ_FLAG_CHECKABLE); //添加标志：可选中
-
-    // //添加事件
-    // //lv_obj_add_event_cb(btn, event_cb, LV_EVENT_CLICKED, NULL);
-    // lv_obj_add_event_cb(btn, event_cb, LV_EVENT_VALUE_CHANGED, NULL); //当按钮的值发生改变时触发事件
-
-    // 例程：电机速度控制面板
-
-    // speed+按钮，在活动屏幕内部左边
-    btn_plus = lv_btn_create(lv_scr_act());
-    lv_obj_set_size(btn_plus, 200, 100);
-    lv_obj_align(btn_plus, LV_ALIGN_LEFT_MID, 50, 0);
-    lv_obj_set_style_bg_color(btn_plus, lv_color_hex(0x0099FF), LV_STATE_DEFAULT);
-
-    lv_obj_t *label_plus = lv_label_create(btn_plus);
-    lv_label_set_text(label_plus, "Speed+");
-    lv_obj_set_style_text_font(label_plus, &lv_font_montserrat_24, LV_STATE_DEFAULT);
-    lv_obj_align(label_plus, LV_ALIGN_CENTER, 0, 0);
-
-    lv_obj_add_event_cb(btn_plus, event_btn_cb, LV_EVENT_CLICKED, NULL); // 被点击时触发事件
-
-    // speed-按钮，在活动屏幕内部中间
-    btn_minus = lv_btn_create(lv_scr_act());
-    lv_obj_set_size(btn_minus, 200, 100);
-    lv_obj_align(btn_minus, LV_ALIGN_CENTER, 0, 0);
-    lv_obj_set_style_bg_color(btn_minus, lv_color_hex(0x0099FF), LV_STATE_DEFAULT);
-
-    lv_obj_t *label_minus = lv_label_create(btn_minus);
-    lv_label_set_text(label_minus, "Speed-");
-    lv_obj_set_style_text_font(label_minus, &lv_font_montserrat_24, LV_STATE_DEFAULT);
-    lv_obj_align(label_minus, LV_ALIGN_CENTER, 0, 0);
-
-    lv_obj_add_event_cb(btn_minus, event_btn_cb, LV_EVENT_CLICKED, NULL); // 被点击时触发事件
-
-    // stop按钮，在活动屏幕内部右边
-    btn_stop = lv_btn_create(lv_scr_act());
-    lv_obj_set_size(btn_stop, 200, 100);
-    lv_obj_align(btn_stop, LV_ALIGN_RIGHT_MID, -50, 0);
-    lv_obj_set_style_bg_color(btn_stop, lv_color_hex(0xEF5F60), LV_STATE_DEFAULT); // 默认颜色
-    lv_obj_set_style_bg_color(btn_stop, lv_color_hex(0x05215F), LV_STATE_PRESSED); // 按下后显示颜色
-    lv_obj_add_flag(btn_stop, LV_OBJ_FLAG_CHECKABLE);                              // 添加标志：可选中
-
-    lv_obj_t *label_stop = lv_label_create(btn_stop);
-    lv_label_set_text(label_stop, "Stop");
-    lv_obj_set_style_text_font(label_stop, &lv_font_montserrat_24, LV_STATE_DEFAULT);
-    lv_obj_align(label_stop, LV_ALIGN_CENTER, 0, 0);
-
-    lv_obj_add_event_cb(btn_stop, event_btn_cb, LV_EVENT_CLICKED, NULL); // 被点击时触发事件
-
-    // 创建显示当前速度的标签部件，在活动屏幕顶部
-    label_speed = lv_label_create(lv_scr_act());
-    lv_obj_set_style_text_font(label_speed, &lv_font_montserrat_24, LV_STATE_DEFAULT);
-    lv_obj_align(label_speed, LV_ALIGN_TOP_MID, 0, 50);
-    lv_label_set_text_fmt(label_speed, "Speed: %d", speed_val);
+    //圆弧宽度
+    lv_obj_set_style_arc_width(spinner1, 20, LV_PART_INDICATOR); //加载器部分的宽度
+    lv_obj_set_style_arc_width(spinner1, 20, LV_PART_MAIN); //主体部分的宽度
 
 #elif practice3
-    // //创建一个开关部件
-    // sw = lv_switch_create(lv_scr_act()); //名称不能直接用switch，因为是关键字
-    // lv_obj_align(sw, LV_ALIGN_CENTER, 0, 0);
-    // lv_obj_set_size(sw, 100, 50);
-    // lv_obj_set_style_bg_color(sw, lv_color_hex(0xFBF200), LV_PART_KNOB); //设置手柄为黄色 默认状态 只放部件时，LV_STATE_DEFAULT | LV_PART_KNOB
-    // lv_obj_set_style_bg_color(sw, lv_color_hex(0x020CFF), LV_STATE_CHECKED | LV_PART_INDICATOR); //设置指示器为深蓝色 开启状态
-    // lv_obj_set_style_bg_color(sw, lv_color_hex(0x00DF01), LV_PART_MAIN); //设置主体为绿色 默认状态 当开关状态为开时，指示器会覆盖掉主体的颜色
+    // 创建一个LED
+    lv_obj_t *led1 = lv_led_create(lv_scr_act());
+    lv_obj_align(led1, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_size(led1, 100, 100);
 
-    // //添加、清除开关的状态
-    // //默认是通过触摸的方式来改变开关的状态，也可以通过代码来改变
-    // lv_obj_add_state(sw, LV_STATE_CHECKED); //设置为打开状态
-    // lv_obj_clear_state(sw, LV_STATE_CHECKED); //设置为关闭状态 清除状态
+    //设置颜色 默认颜色是蓝色
+    lv_led_set_color(led1, lv_color_hex(0xFBD801)); // 设置LED的颜色
 
-    // lv_obj_add_state(sw, LV_STATE_DISABLED | LV_STATE_CHECKED); //设置为禁用状态 打开，且不可修改
-    // lv_obj_remove_state(sw, LV_STATE_DISABLED | LV_STATE_CHECKED); //移除禁用状态
+    //设置亮度 亮度范围0-255
+    lv_led_set_brightness(led1, 150); // 设置LED的亮度
 
-    // lv_obj_add_event_cb(sw, event_cb, LV_EVENT_VALUE_CHANGED, NULL); //添加事件
-
-    // //获取、判断开关的状态
-    // //bool state = lv_obj_has_state(sw, LV_STATE_CHECKED); //获取开关的状态  判断当前状态是否为已打开 返回值为bool类型
-
-    // 例程：智能家居控制系统
-    obj_create_sw_cool();
-    obj_create_sw_heat();
-    obj_create_sw_dry();
-    obj_create_label();
+    //设置led灯的状态：一般在事件回调函数里面设置
+    lv_led_on(led1); // 设置LED为亮
+    //lv_led_off(led1); // 设置LED为灭
+    //lv_led_toggle(led1); // 切换LED的状态
 
 #elif practice4
-    // 创建一个复选框
-    checkbox1 = lv_checkbox_create(lv_scr_act());
-    lv_obj_align(checkbox1, LV_ALIGN_CENTER, 0, 0);
-    // lv_obj_set_size(checkbox1, 100, 50);
+    // 创建一个列表
+    lv_obj_t *list1 = lv_list_create(lv_scr_act());
+    lv_obj_align(list1, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_size(list1, 200, 200);
 
-    // 文本设置
-    lv_checkbox_set_text(checkbox1, "Checkbox1");
-    lv_obj_set_style_pad_column(checkbox1, 20, 0); // 设置文本和复选框之间的间距
-    lv_obj_set_style_text_font(checkbox1, &lv_font_montserrat_24, LV_STATE_DEFAULT); // 设置文本的字体
+    //设置列表文本，即列表的标题，一般显示在列表的左上方
+    lv_list_add_text(list1, "Setting");
 
-    // 添加、清理复选框的状态 类似于开关
-    lv_obj_add_state(checkbox1, LV_STATE_CHECKED); // 设置为选中状态
-    // lv_obj_clear_state(checkbox1, LV_STATE_CHECKED); //设置为未选中状态 清除状态
+    //设置字体大小
+    lv_obj_set_style_text_font(list1, &lv_font_montserrat_14, LV_PART_MAIN); // 设置主体部分的字体
 
-    // 获取（判断复选框的状态）
-    bool state = lv_obj_has_state(checkbox1, LV_STATE_CHECKED); // 获取复选框的状态  判断当前状态是否为已选中 返回值为bool类型
+    //添加列表按钮，同时接收返回值，可以用来设置按钮的样式
+    //相当于是以列表为父对象，添加按钮
+    btn1 = lv_list_add_btn(list1, LV_SYMBOL_OK, "Ok"); //三个参数，第二个是图标，第三个是文本，lvgl内置了图标枚举
+    btn2 = lv_list_add_btn(list1, LV_SYMBOL_WIFI, "WLAN");
+    btn3 = lv_list_add_btn(list1, LV_SYMBOL_VOLUME_MAX, "Volume");
+    btn4 = lv_list_add_btn(list1, LV_SYMBOL_BELL, "Ring");
+    btn5 = lv_list_add_btn(list1, LV_SYMBOL_HOME, "Home");
+    btn6 = lv_list_add_btn(list1, LV_SYMBOL_CLOSE, "Close");
 
-    // 添加事件
-    lv_obj_add_event_cb(checkbox1, event_checkbox_cb, LV_EVENT_VALUE_CHANGED, NULL); // 当复选框的值发生改变时触发事件
+    //获取列表的文本，可以在回调函数中用触发源判断是哪个按钮被按下
+    const char *text = lv_list_get_btn_text(list1, btn1); // 获取btn1的文本
 
+    //添加事件 添加列表中按钮的事件，而不是列表的事件，在回调函数中获取按钮的文本
+    lv_obj_add_event_cb(btn1, event_list_cb, LV_EVENT_CLICKED, NULL); // 设置事件回调函数
 
 #elif practice5
 
@@ -346,80 +158,4 @@ void mygui()
 #else
 
 #endif
-}
-
-// 智能家居控制系统的布局函数声明，一个打开制冷，一个打开制热，一个打开干燥。还有一个标签
-static void obj_create_sw_cool()
-{
-    // 基于活动屏幕创建一个基础部件，作为开关部件的父对象
-    lv_obj_t *sw_cool_parent = lv_obj_create(lv_scr_act());
-    lv_obj_set_size(sw_cool_parent, 160, 160);
-    lv_obj_align(sw_cool_parent, LV_ALIGN_CENTER, -230, 0);
-    lv_obj_set_style_border_opa(sw_cool_parent, 70, 0); // 设置边框透明度
-
-    // 创建一个标签，显示Cool
-    lv_obj_t *label_cool = lv_label_create(sw_cool_parent);
-    lv_label_set_text(label_cool, "Cool");
-    lv_obj_align(label_cool, LV_ALIGN_CENTER, 0, -30);
-    lv_obj_set_style_text_font(label_cool, &lv_font_montserrat_24, LV_STATE_DEFAULT);
-
-    // 创建一个开关部件
-    sw_cool = lv_switch_create(sw_cool_parent);
-    lv_obj_align(sw_cool, LV_ALIGN_CENTER, 0, 20);
-    lv_obj_set_size(sw_cool, 80, 40);
-
-    // 添加事件
-    lv_obj_add_event_cb(sw_cool, event_smart_control_cb, LV_EVENT_VALUE_CHANGED, NULL); // 当开关的值发生改变时触发事件
-}
-
-static void obj_create_sw_heat()
-{
-    lv_obj_t *sw_heat_parent = lv_obj_create(lv_scr_act());
-    lv_obj_set_size(sw_heat_parent, 160, 160);
-    lv_obj_align(sw_heat_parent, LV_ALIGN_CENTER, 0, 0);
-    lv_obj_set_style_border_opa(sw_heat_parent, 70, 0); // 设置边框透明度
-
-    // 创建一个标签，显示Heat
-    lv_obj_t *label_heat = lv_label_create(sw_heat_parent);
-    lv_label_set_text(label_heat, "Heat");
-    lv_obj_align(label_heat, LV_ALIGN_CENTER, 0, -30);
-    lv_obj_set_style_text_font(label_heat, &lv_font_montserrat_24, LV_STATE_DEFAULT);
-
-    // 创建一个开关部件
-    sw_heat = lv_switch_create(sw_heat_parent);
-    lv_obj_align(sw_heat, LV_ALIGN_CENTER, 0, 20);
-    lv_obj_set_size(sw_heat, 80, 40);
-
-    lv_obj_add_event_cb(sw_heat, event_smart_control_cb, LV_EVENT_VALUE_CHANGED, NULL); // 当开关的值发生改变时触发事件
-}
-
-static void obj_create_sw_dry()
-{
-    lv_obj_t *sw_dry_parent = lv_obj_create(lv_scr_act());
-    lv_obj_set_size(sw_dry_parent, 160, 160);
-    lv_obj_align(sw_dry_parent, LV_ALIGN_CENTER, 230, 0);
-    lv_obj_set_style_border_opa(sw_dry_parent, 70, 0); // 设置边框透明度
-
-    // 创建一个标签，显示Dry
-    lv_obj_t *label_dry = lv_label_create(sw_dry_parent);
-    lv_label_set_text(label_dry, "Dry");
-    lv_obj_align(label_dry, LV_ALIGN_CENTER, 0, -30);
-    lv_obj_set_style_text_font(label_dry, &lv_font_montserrat_24, LV_STATE_DEFAULT);
-
-    // 创建一个开关部件
-    sw_dry = lv_switch_create(sw_dry_parent);
-    lv_obj_align(sw_dry, LV_ALIGN_CENTER, 0, 20);
-    lv_obj_set_size(sw_dry, 80, 40);
-    lv_obj_add_state(sw_dry, LV_STATE_CHECKED | LV_STATE_DISABLED); // 设置为打开状态,且不可修改
-
-    lv_obj_add_event_cb(sw_dry, event_smart_control_cb, LV_EVENT_VALUE_CHANGED, NULL); // 当开关的值发生改变时触发事件
-}
-
-static void obj_create_label()
-{
-    // 以活动屏幕为父对象，创建一个标签部件，显示Control Center
-    lv_obj_t *label_control = lv_label_create(lv_scr_act());
-    lv_label_set_text(label_control, "Control Center");
-    lv_obj_align(label_control, LV_ALIGN_TOP_MID, 0, 40);
-    lv_obj_set_style_text_font(label_control, &lv_font_montserrat_30, LV_STATE_DEFAULT);
 }
