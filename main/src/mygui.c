@@ -1,161 +1,127 @@
 #include "mygui.h"
 
-/*这个分支主要存放控件学习中的 进度条、加载器、LED部件、列表部件*/
+// 声明列表中的10个按钮
+// static lv_obj_t *btn1;
+// static lv_obj_t *btn2;
+// static lv_obj_t *btn3;
+// static lv_obj_t *btn4;
+// static lv_obj_t *btn5;
+// static lv_obj_t *btn6;
+// static lv_obj_t *btn7;
+// static lv_obj_t *btn8;
+// static lv_obj_t *btn9;
+// static lv_obj_t *btn10;
 
-#define practice1 0
-#define practice2 0
-#define practice3 0
-#define practice4 1
-#define practice5 0
-#define practice6 0
-#define practice7 0
+static lv_obj_t *btn; // 选中的按钮
 
-lv_obj_t *btn1;
-lv_obj_t *btn2;
-lv_obj_t *btn3;
-lv_obj_t *btn4;
-lv_obj_t *btn5;
-lv_obj_t *btn6;
+lv_obj_t *label; // 右半部分显示列表按钮选择内容的标签
 
-// 进度条部件lv_bar    用于显示当前任务的进度，可以是水平的或者垂直的
-/*
-组成部分：
-主体：进度条的背景 lv_part_main
-指示器：进度条的进度 lv_part_indicator
-
-*/
-
-
-//加载器部件lv_spinner  常用于提示当前任务正在加载
-/*
-组成部分：
-主体：加载器的背景 lv_part_main
-指示器：加载器的指示器 lv_part_indicator 是一个圆弧，后续设置加载器样式基本都是设置圆弧的样式
-手柄：加载器的手柄 lv_part_knob
-
-*/
-
-//LED部件 lv_led  用于显示设备的状态
-/*只有一个主体部分lv_part_main */
-
-//列表部件lv_list 常用于多选一，默认会显示多个选项
-/*
-组成部分：
-主体：列表的背景 lv_part_main
-滚动条：列表的滚动条 lv_part_scrollbar
-*/
+static void obj_left();
+static void obj_right();
 
 static void event_list_cb(lv_event_t *e)
 {
-    lv_event_code_t code = lv_event_get_code(e);
     lv_obj_t *target = lv_event_get_target(e);
-    if (target == btn1)
-    {
-        //获取列表按钮的文本，并打印出来
-        const char *text = lv_list_get_btn_text(lv_obj_get_parent(target), target); //直接通过target获取父对象
-        printf("btn1:%s\n", text);
-    }
 
+    const char *text = lv_list_get_btn_text(lv_obj_get_parent(target), target); // 获取按钮的文本内容
+
+    // 根据按钮的文本内容，设置右半部分的标签内容
+    lv_label_set_text_fmt(label, "%s", text);
+    printf("Button %s is clicked\n", text);
+
+    // 给按钮添加聚焦状态
+    lv_obj_add_state(target, LV_STATE_FOCUS_KEY);
 }
 
-void mygui()
+void mygui(void)
 {
+    // 左部件，放置列表
+    obj_left();
+    // 右部件，放置显示选择的内容的标签
+    obj_right();
+}
 
-#if practice1
-    // 创建进度条部件
-    lv_obj_t *bar1 = lv_bar_create(lv_scr_act());
-    lv_obj_set_size(bar1, 200, 20); //横向大于纵向，就是横向进度条，反之就是纵向进度条
-    lv_obj_align(bar1, LV_ALIGN_CENTER, 0, 0);
+static void obj_left()
+{
+    // 创建一个基础对象，作为列表的父对象
+    lv_obj_t *obj = lv_obj_create(lv_scr_act());
+    lv_obj_set_size(obj, 300, 400);
+    // 居中对齐，但往左偏移200
+    lv_obj_align(obj, LV_ALIGN_CENTER, -200, 0);
 
-    // 设置进度条的值
-    lv_bar_set_range(bar1, 0, 100);  // 设置进度条的范围
-    //lv_bar_set_value(bar1, 70, LV_ANIM_ON); // 设置进度条的值
-    //第三个参数是动画的开关，LV_ANIM_ON表示开启动画，LV_ANIM_OFF表示关闭动画
+    // 创建一个列表对象
+    lv_obj_t *list = lv_list_create(obj);
+    lv_obj_align(list, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_size(list, 250, 300);
+    lv_obj_set_style_text_font(list, &lv_font_montserrat_14, LV_PART_MAIN);
 
-    // 设置动画时间  必须在设置当前值之前设置
-    lv_obj_set_style_anim_time(bar1, 1000, LV_STATE_DEFAULT); // 设置动画时间为1000ms
-    lv_bar_set_value(bar1, 70, LV_ANIM_ON); // 设置进度条的值
+    lv_list_add_text(list, "File");
+    // btn1 = lv_list_add_btn(list, LV_SYMBOL_FILE, "File");           // File
+    // btn2 = lv_list_add_btn(list, LV_SYMBOL_DIRECTORY, "Directory"); // Directory
+    // btn3 = lv_list_add_btn(list, LV_SYMBOL_CLOSE, "Close");         // Close
+    // btn4 = lv_list_add_btn(list, LV_SYMBOL_EDIT, "Edit");           // Edit
+    // btn5 = lv_list_add_btn(list, LV_SYMBOL_SAVE, "Save");           // Save
 
-    //设置模式
-    lv_bar_set_mode(bar1, LV_BAR_MODE_RANGE); // 设置进度条的模式
-    /*
-    枚举型变量：
-    LV_BAR_MODE_NORMAL：默认模式 从设定的范围的最小值绘制到当前值
-    LV_BAR_MODE_SYMMETRICAL：从零绘制到指定值，指定值可以小于零
-    LV_BAR_MODE_RANGE： 允许设定起始值，起始值必须小于当前值
-    */
+    // 先设置按钮文本，再添加事件
+    btn = lv_list_add_btn(list, LV_SYMBOL_FILE, "File"); // File
+    lv_obj_add_event_cb(btn, event_list_cb, LV_EVENT_CLICKED, NULL);
 
-    //设置起始值 只有在LV_BAR_MODE_RANGE模式下才有效
-    lv_bar_set_start_value(bar1, 20, LV_ANIM_ON); // 设置起始值
-    //lv_bar_set_value(bar1, 70, LV_ANIM_ON); // 设置当前值，从20加载到70
+    btn = lv_list_add_btn(list, LV_SYMBOL_DIRECTORY, "Directory"); // Directory
+    lv_obj_add_event_cb(btn, event_list_cb, LV_EVENT_CLICKED, NULL);
 
-    //例程 用lv_timer定时器来改变进度条的值
-    //lv_timer_create(回调函数，定时时间，参数) ，在回调函数里面调用lv_bar_set_value(bar1, 70, LV_ANIM_ON);来改变进度条的值
+    btn = lv_list_add_btn(list, LV_SYMBOL_CLOSE, "Close"); // Close
+    lv_obj_add_event_cb(btn, event_list_cb, LV_EVENT_CLICKED, NULL);
 
-#elif practice2
-    // 创建一个加载器
-    lv_obj_t *spinner1 = lv_spinner_create(lv_scr_act());
-    lv_obj_align(spinner1, LV_ALIGN_CENTER, 0, 0);
-    lv_obj_set_size(spinner1, 100, 100);
+    btn = lv_list_add_btn(list, LV_SYMBOL_EDIT, "Edit"); // Edit
+    lv_obj_add_event_cb(btn, event_list_cb, LV_EVENT_CLICKED, NULL);
 
-    //设置样式
-    //圆弧颜色 第三个参数表示设置那一部分的颜色，以及什么时候设置
-    lv_obj_set_style_arc_color(spinner1, lv_color_hex(0x072062), LV_PART_INDICATOR); //加载器部分的颜色
-    lv_obj_set_style_arc_color(spinner1, lv_color_hex(0xF2F2F2), LV_PART_MAIN); //主体部分的颜色
+    btn = lv_list_add_btn(list, LV_SYMBOL_SAVE, "Save"); // Save
+    lv_obj_add_event_cb(btn, event_list_cb, LV_EVENT_CLICKED, NULL);
 
-    //圆弧宽度
-    lv_obj_set_style_arc_width(spinner1, 20, LV_PART_INDICATOR); //加载器部分的宽度
-    lv_obj_set_style_arc_width(spinner1, 20, LV_PART_MAIN); //主体部分的宽度
+    lv_list_add_text(list, "Connectitvity");
 
-#elif practice3
-    // 创建一个LED
-    lv_obj_t *led1 = lv_led_create(lv_scr_act());
-    lv_obj_align(led1, LV_ALIGN_CENTER, 0, 0);
-    lv_obj_set_size(led1, 100, 100);
+    btn = lv_list_add_btn(list, LV_SYMBOL_WIFI, "WiFi"); // WiFi
+    lv_obj_add_event_cb(btn, event_list_cb, LV_EVENT_CLICKED, NULL);
 
-    //设置颜色 默认颜色是蓝色
-    lv_led_set_color(led1, lv_color_hex(0xFBD801)); // 设置LED的颜色
+    btn = lv_list_add_btn(list, LV_SYMBOL_BLUETOOTH, "Bluetooth"); // Bluetooth
+    lv_obj_add_event_cb(btn, event_list_cb, LV_EVENT_CLICKED, NULL);
 
-    //设置亮度 亮度范围0-255
-    lv_led_set_brightness(led1, 150); // 设置LED的亮度
+    btn = lv_list_add_btn(list, LV_SYMBOL_GPS, "GPS"); // GPS
+    lv_obj_add_event_cb(btn, event_list_cb, LV_EVENT_CLICKED, NULL);
 
-    //设置led灯的状态：一般在事件回调函数里面设置
-    lv_led_on(led1); // 设置LED为亮
-    //lv_led_off(led1); // 设置LED为灭
-    //lv_led_toggle(led1); // 切换LED的状态
+    btn = lv_list_add_btn(list, LV_SYMBOL_USB, "USB"); // USB
+    lv_obj_add_event_cb(btn, event_list_cb, LV_EVENT_CLICKED, NULL);
 
-#elif practice4
-    // 创建一个列表
-    lv_obj_t *list1 = lv_list_create(lv_scr_act());
-    lv_obj_align(list1, LV_ALIGN_CENTER, 0, 0);
-    lv_obj_set_size(list1, 200, 200);
+    btn = lv_list_add_btn(list, LV_SYMBOL_SD_CARD, "SD Card"); // SD Card
+    lv_obj_add_event_cb(btn, event_list_cb, LV_EVENT_CLICKED, NULL);
+    // btn6 = lv_list_add_btn(list, LV_SYMBOL_WIFI, "WiFi");           // WiFi
+    // btn7 = lv_list_add_btn(list, LV_SYMBOL_BLUETOOTH, "Bluetooth"); // Bluetooth
+    // btn8 = lv_list_add_btn(list, LV_SYMBOL_GPS, "GPS");             // GPS
+    // btn9 = lv_list_add_btn(list, LV_SYMBOL_USB, "USB");             // USB
+    // btn10 = lv_list_add_btn(list, LV_SYMBOL_SD_CARD, "SD Card");    // SD Card
 
-    //设置列表文本，即列表的标题，一般显示在列表的左上方
-    lv_list_add_text(list1, "Setting");
+    // 为每个按钮添加事件
+    // lv_obj_add_event_cb(btn1, event_list_cb, LV_EVENT_CLICKED, NULL);
+    // lv_obj_add_event_cb(btn2, event_list_cb, LV_EVENT_CLICKED, NULL);
+    // lv_obj_add_event_cb(btn3, event_list_cb, LV_EVENT_CLICKED, NULL);
+    // lv_obj_add_event_cb(btn4, event_list_cb, LV_EVENT_CLICKED, NULL);
+    // lv_obj_add_event_cb(btn5, event_list_cb, LV_EVENT_CLICKED, NULL);
+    // lv_obj_add_event_cb(btn6, event_list_cb, LV_EVENT_CLICKED, NULL);
+    // lv_obj_add_event_cb(btn7, event_list_cb, LV_EVENT_CLICKED, NULL);
+    // lv_obj_add_event_cb(btn8, event_list_cb, LV_EVENT_CLICKED, NULL);
+    // lv_obj_add_event_cb(btn9, event_list_cb, LV_EVENT_CLICKED, NULL);
+    // lv_obj_add_event_cb(btn10, event_list_cb, LV_EVENT_CLICKED, NULL);
+}
 
-    //设置字体大小
-    lv_obj_set_style_text_font(list1, &lv_font_montserrat_14, LV_PART_MAIN); // 设置主体部分的字体
+static void obj_right()
+{
+    // 创建一个基础对象，作为标签的父对象
+    lv_obj_t *obj = lv_obj_create(lv_scr_act());
+    lv_obj_set_size(obj, 300, 400);
+    lv_obj_align(obj, LV_ALIGN_CENTER, 200, 0);
 
-    //添加列表按钮，同时接收返回值，可以用来设置按钮的样式
-    //相当于是以列表为父对象，添加按钮
-    btn1 = lv_list_add_btn(list1, LV_SYMBOL_OK, "Ok"); //三个参数，第二个是图标，第三个是文本，lvgl内置了图标枚举
-    btn2 = lv_list_add_btn(list1, LV_SYMBOL_WIFI, "WLAN");
-    btn3 = lv_list_add_btn(list1, LV_SYMBOL_VOLUME_MAX, "Volume");
-    btn4 = lv_list_add_btn(list1, LV_SYMBOL_BELL, "Ring");
-    btn5 = lv_list_add_btn(list1, LV_SYMBOL_HOME, "Home");
-    btn6 = lv_list_add_btn(list1, LV_SYMBOL_CLOSE, "Close");
-
-    //获取列表的文本，可以在回调函数中用触发源判断是哪个按钮被按下
-    const char *text = lv_list_get_btn_text(list1, btn1); // 获取btn1的文本
-
-    //添加事件 添加列表中按钮的事件，而不是列表的事件，在回调函数中获取按钮的文本
-    lv_obj_add_event_cb(btn1, event_list_cb, LV_EVENT_CLICKED, NULL); // 设置事件回调函数
-
-#elif practice5
-
-#elif practice6
-
-#else
-
-#endif
+    label = lv_label_create(obj);
+    lv_obj_align(label, LV_ALIGN_CENTER, 0, 0);
+    lv_label_set_text_fmt(label, "Hello World");
+    lv_obj_set_style_text_font(label, &lv_font_montserrat_30, 0);
 }

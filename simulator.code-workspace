@@ -26,7 +26,8 @@
 		"cmake.configureOnOpen": true,
 		"files.associations": {
 			"glob.h": "c",
-			"lvgl.h": "c"
+			"lvgl.h": "c",
+			"mygui.h": "c"
 		},
 	},
 	// tasks.json section
