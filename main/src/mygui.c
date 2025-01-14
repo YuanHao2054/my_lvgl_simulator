@@ -1,9 +1,33 @@
 #include "mygui.h"
 
+#define practice1 0
+#define practice2 0
+#define practice3 0
+#define practice4 0
+#define practice5 0
+#define practice6 6
+#define practice7 0
 
 void mygui()
 {
-    lv_obj_t *switch_obj = lv_switch_create(lv_scr_act());
-    lv_obj_set_size(switch_obj, 120, 60);
-    lv_obj_align(switch_obj, LV_ALIGN_CENTER, 0, 0);
+
+#if practice1
+
+#elif practice2
+
+#elif practice3
+
+#elif practice4
+
+#elif practice5
+
+#elif practice6
+
+
+
+
+#else
+
+#endif
+
 }
