@@ -79,6 +79,7 @@ if(USE_FREERTOS)
         ${PROJECT_SOURCE_DIR}/main/src/mouse_cursor_icon.c
         ${PROJECT_SOURCE_DIR}/main/src/FreeRTOS_Posix_Port.c
         ${PROJECT_SOURCE_DIR}/main/src/mygui.c
+        ${PROJECT_SOURCE_DIR}/main/src/img_test.c
         ${FREERTOS_SOURCES}  # Add only if USE_FREERTOS is enabled
     )
     # Link FreeRTOS libraries
@@ -88,6 +89,7 @@ else()
         ${PROJECT_SOURCE_DIR}/main/src/main.c
         ${PROJECT_SOURCE_DIR}/main/src/mouse_cursor_icon.c
         ${PROJECT_SOURCE_DIR}/main/src/mygui.c
+        ${PROJECT_SOURCE_DIR}/main/src/img_test.c
     )
 endif()
 

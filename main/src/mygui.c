@@ -1,251 +1,221 @@
 #include "mygui.h"
 
-// 这部分主要存下拉列表、滚轮、滑块、圆弧 线条部分的代码
+// 这部分主要存放图片、色环、按钮矩阵、文本区域、键盘部分的代码
 
 #define practice1 0
 #define practice2 0
 #define practice3 0
 #define practice4 0
 #define practice5 1
-#define practice6 6
+#define practice6 0
 #define practice7 0
 
-static lv_obj_t *dropdown;
-static lv_obj_t *roller;
-
-/*下拉列表lv_dropdown 常用于多选一的场景，点击后可以展示多个选项*/
+// 图片lv_img
 /*
-组成部分：
-按钮 button
-列表 list
+组成部分
+主体：lv_part_main
 */
 
-/*滚轮部件lv_roller 常用于多选一的场景，以滚轮的形式来展现多个选项*/
+// 色环部件lv_colorwheel  一般用做颜色选择器
 /*
 组成部分：
-主体 lv_part_main
-选项框 lv_part_selected
+主体：lv_part_main
+把手：lv_part_knob
 */
 
-/*滑块部件lv_slider 常用于调节某个参数的值，以直线滑动的方式来修改数值*/
+// 按钮矩阵  lv_btnmatrix  可以在不同的行和列中显示多个轻量级按钮
 /*
 组成部分：
-主体 lv_part_main
-指示器 lv_part_indicator
-把手 lv_part_knob
+主体：lv_part_main
+按钮：lv_part_items
 */
 
-// 圆弧部件：lv_arc 用圆弧的方式来调节或展示某个参数的值
+//文本区域部件 lv_textarea  用于显示和编辑文本，即文本输入框，用户可以在其中输入文本内容
 /*
 组成部分：
-背景弧 lv_part_main
-前景弧 lv_part_indicator
-把手 lv_part_knob
+主体：lv_part_main
+滚动条：lv_part_scrollbar
+所选文本：lv_part_selected
+光标：lv_part_cursor
+占位符：textarea_placeholder
 */
 
-// 线条部件：lv_line 在指定的坐标直接画直线，可以交叉也可以闭合
-/*
-组成部分：
-主体 lv_part_main
-*/
+//键盘部件 lv_keyboard  用于输入文本
 
-static void event_dropdown_cb(lv_event_t *e)
+
+LV_IMG_DECLARE(img_test); // 声明一个图片
+
+static void event_btnmatrix_cb(lv_event_t *e)
 {
-    char buf[32];
-    lv_dropdown_get_selected_str(dropdown, buf, sizeof(buf));
-    printf("选中的选项是：%s\n", buf);
-    printf("选中的选项是：%d\n", lv_dropdown_get_selected(dropdown));
-}
-
-static void event_roller_cb(lv_event_t *e)
-{
-    char buf[32];
-    lv_roller_get_selected_str(roller, buf, sizeof(buf));
-    printf("选中的选项是：%s\n", buf);
-    printf("选中的选项是：%d\n", lv_roller_get_selected(roller));
-}
-
-static void event_slider_cb(lv_event_t *e)
-{
-    lv_obj_t *slider = lv_event_get_target(e);
-    printf("当前值是：%d\n", lv_slider_get_value(slider));
-}
-
-static void event_arc_cb(lv_event_t *e)
-{
-    lv_obj_t *arc = lv_event_get_target(e);
-    printf("当前值是：%d\n", lv_arc_get_value(arc));
+    lv_obj_t *target = lv_event_get_target(e);
+    uint32_t id;
+    id = lv_btnmatrix_get_selected_btn(target);
+    //获取按钮的文本
+    const char *text = lv_btnmatrix_get_btn_text(target, id);
+    printf("Button %d is pressed, text is %s\n", id, text);
+    //当传递一个字符串指针给printf函数时，printf函数会打印字符串的内容，直到遇到字符串的结束符'\0'为止，因此不需要解引用
 }
 
 void mygui()
 {
 
 #if practice1
-    // 创建一个下拉列表
-    dropdown = lv_dropdown_create(lv_scr_act());
-    lv_obj_set_size(dropdown, 200, 50);
-    lv_obj_align(dropdown, LV_ALIGN_CENTER, 0, 0);
-    lv_obj_set_style_text_font(dropdown, &lv_font_montserrat_24, 0); // 只是设置选择框里的字体大小，选项里的字体大小没有配置
+    // 创建一个图片对象
+    lv_obj_t *img1 = lv_img_create(lv_scr_act());
 
-    // lv_dropdown_set_selected_highlight(dropdown, true); //设置选中的选项高亮显示
+    // 设置图片对象的源
+    // 图片来源有三个：1、c语言的数组 2、bin文件 3、lvgl内置的图标
 
-    // 设置选项内容
-    //  lv_dropdown_set_options(dropdown, "Apple\n"
-    //                                    "Banana\n"
-    //                                    "Orange\n"
-    //                                    "Melon\n"
-    //                                    "Grape\n"
-    //                                    "Raspberry");
+    // c语言数组，可以用lvgl官网提供的工具，将图片生成为一个c文件，添加进工程，并且用LV_IMG_DECLARE函数外声明
+    // LV_IMG_DECLARE(gImage_yingwu);  //声明一个图片
+    lv_img_set_src(img1, &img_test); // 设置图片源
 
-    lv_dropdown_set_options(dropdown, "Apple\nBanana\nOrange\nMelon\nGrape\nRaspberry");
-    // 设置选项（静态）可以节约内存
-    // lv_dropdown_set_options_static(dropdown, "a\nb\nc\nd");
+    // 设置图片偏移  偏移超出图片的部分，会从另一端显示
+    lv_img_set_offset_x(img1, 10); // x轴偏移10
+    lv_img_set_offset_y(img1, 10); // y轴偏移10
 
-    // 单独添加选项到下拉列表 索引从0开始
-    // lv_dropdown_add_option(dropdown, "Kiwi", LV_DROPDOWN_POS_LAST); //添加到最后，也有对应的宏
-    lv_dropdown_add_option(dropdown, "Kiwi", 2);
+    // 图片重新着色
+    lv_obj_set_style_img_recolor(img1, lv_color_hex(0x00ff00), LV_PART_MAIN); // 将图片着色为绿色
+    lv_obj_set_style_img_recolor_opa(img1, LV_OPA_50, LV_PART_MAIN);          // 设置图片着色透明度
 
-    // 设置当前选中的选项  使用索引
-    lv_dropdown_set_selected(dropdown, 2);
+    // 图片旋转 顺时针旋转 参数为角度乘以10
+    lv_img_set_angle(img1, 900); // 设置图片旋转90度
 
-    // 获取当前选中的选项 一般用于回调函数
+    // 图片缩放 128(1/2)50%  256(1/1)100%  512(2/1)缩放200%
+    lv_img_set_zoom(img1, 128); // 设置图片缩放50%
 
-    lv_dropdown_get_selected(dropdown); // 获取当前选中的选项的索引
-    char buf[32];
-    lv_dropdown_get_selected_str(dropdown, buf, sizeof(buf));
-
-    // 设置方向和图标
-    lv_dropdown_set_dir(dropdown, LV_DIR_BOTTOM);     // 设置下拉列表的方向
-    lv_dropdown_set_symbol(dropdown, LV_SYMBOL_DOWN); // 设置下拉列表的图标，可以使用系统自带的图标
-
-    // 设置回调函数
-    lv_obj_add_event_cb(dropdown, event_dropdown_cb, LV_EVENT_VALUE_CHANGED, NULL);
+    // 设置中心点 默认情况下图片的旋转和缩放都是以图片的几何中心为中心点，可以通过设置中心点来改变
+    lv_obj_update_layout(img1); // 先要更新布局
+    lv_img_set_pivot(img1, 400, 0);
 
 #elif practice2
-    // 创建滚轮部件
-    roller = lv_roller_create(lv_scr_act());
-    lv_obj_set_size(roller, 100, 100);
-    lv_obj_align(roller, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_t *colorwheel = lv_colorwheel_create(lv_scr_act(), true); // 创建一个色环对象 第二个参数表示把手的颜色是否为当前选择的颜色（色环选择的颜色）
+    lv_obj_set_size(colorwheel, 200, 200);                           // 设置色环的大小
+    lv_obj_align(colorwheel, LV_ALIGN_CENTER, 0, 0);                 // 设置色环的位置
 
-    // 设置选项间隔
-    lv_obj_set_style_text_line_space(roller, 5, LV_STATE_DEFAULT);
-
-    // 设置选项内容，和它们的滚动模式
-    //  lv_roller_set_options(roller, "Apple\n"
-    //                                "Banana\n"
-    //                                "Orange\n"
-    //                                "Melon\n"
-    //                                "Grape\n"
-    //                                "Raspberry\n"
-    //                                "Cherry\n"
-    //                                "Pear\n"
-    //                                "Kiwi\n", LV_ROLLER_MODE_INFINITE);
-
-    lv_roller_set_options(roller, "Apple\nBanana\nOrange\nMelon\nGrape\nRaspberry\nCherry\nPear\nKiwi", LV_ROLLER_MODE_NORMAL);
-    // 模式只有两种，一种是无限滚动，一种是正常滚动
-
-    // 设置当前选项 根据索引 从0开始 选择是否有动画
-    lv_roller_set_selected(roller, 2, LV_ANIM_OFF);
-
-    // 设置可见行数
-    lv_roller_set_visible_row_count(roller, 6);
-
-    // 获取选项内容
-    lv_roller_get_selected(roller); // 获取当前选中的选项的索引
-    char buf[32];
-    lv_roller_get_selected_str(roller, buf, sizeof(buf));
-
-    // 设置回调函数
-    lv_obj_add_event_cb(roller, event_roller_cb, LV_EVENT_VALUE_CHANGED, NULL);
 #elif practice3
-    // 创建一个滑块
-    lv_obj_t *slider = lv_slider_create(lv_scr_act());
-    lv_obj_set_size(slider, 200, 20);
-    lv_obj_align(slider, LV_ALIGN_CENTER, 0, 0);
+    // 创建一个按钮矩阵
+    lv_obj_t *btnmatrix = lv_btnmatrix_create(lv_scr_act());
+    lv_obj_set_size(btnmatrix, 200, 200);           // 设置按钮矩阵的大小
+    lv_obj_align(btnmatrix, LV_ALIGN_CENTER, 0, 0); // 设置按钮矩阵的位置
 
-    // 设置范围
-    lv_slider_set_range(slider, 0, 100);
-    // 设置当前值
-    lv_slider_set_value(slider, 50, LV_ANIM_OFF);
+    // 设置按钮数量、文本 定义按钮数组，最后一个元素必须为空 如果要换行，则\n占用一个数组元素
+    static const char *btnm_map[] = {"1", "2", "3", "4", "5", "\n", "6", "7", "8", "9", ""};
+    lv_btnmatrix_set_map(btnmatrix, btnm_map); // 设置按钮矩阵的按钮
 
-    // 获取当前值
-    lv_slider_get_value(slider);
+    // 设置按钮的相对宽度，第二个参数为按钮的索引，从0开始，第三个参数为宽度
+    lv_btnmatrix_set_btn_width(btnmatrix, 0, 20); // 设置第一个按钮的宽度为20
 
-    // 设置回调函数
-    lv_obj_add_event_cb(slider, event_slider_cb, LV_EVENT_VALUE_CHANGED, NULL);
+    // 按钮的长度由按钮的行数和按钮部件的高度决定，可以通过设置按钮部件的高度来改变按钮的长度
 
-    // 模式设置
-    lv_slider_set_mode(slider, LV_SLIDER_MODE_RANGE); // 正常模式
-    /*
-    LV_SLIDER_MODE_NORMAL //正常模式：滑块在最小值和最大值之间移动
-    LV_SLIDER_MODE_SYMMETRICAL //对称模式：滑块在中间点对称地移动
-    LV_SLIDER_MODE_RANGE //范围模式：滑块可以选择一个范围
-    */
+    // 获取按钮索引、文本 一般在回调函数中被调用
+    uint32_t id = lv_btnmatrix_get_selected_btn(btnmatrix); // 获取被按下的按钮的索引
+    lv_btnmatrix_get_btn_text(btnmatrix, id);               // 通过按钮索引获取按钮的文本
 
-    // 设置、获取左值 在范围模式下使用 左值不能大于右值，右值是用户调节的值
-    lv_slider_set_left_value(slider, 20, LV_ANIM_OFF);
-    lv_slider_get_left_value(slider); // 获取左值
+    // 为按钮添加属性
+    lv_btnmatrix_set_btn_ctrl(btnmatrix, 0, LV_BTNMATRIX_CTRL_HIDDEN);    // 第二个参数是按钮索引，第三个参数是按钮的属性
+    lv_btnmatrix_set_btn_ctrl(btnmatrix, 1, LV_BTNMATRIX_CTRL_DISABLED);  // 禁用按钮
+    lv_btnmatrix_set_btn_ctrl(btnmatrix, 2, LV_BTNMATRIX_CTRL_CHECKABLE); // 启用按钮状态切换
+    lv_btnmatrix_set_btn_ctrl(btnmatrix, 3, LV_BTNMATRIX_CTRL_CHECKED);   // 选中按钮
+    lv_btnmatrix_set_btn_ctrl(btnmatrix, 4, LV_BTNMATRIX_CTRL_POPOVER);   // 按下此按钮时在弹出窗口中显示按钮标签
+    lv_btnmatrix_set_btn_ctrl(btnmatrix, 5, LV_BTNMATRIX_CTRL_NO_REPEAT);   // 启用按钮文本的重新着色功能
 
-#elif practice4
-    // 创建一个圆弧
-    lv_obj_t *arc = lv_arc_create(lv_scr_act());
-    lv_obj_set_size(arc, 200, 200);
-    lv_obj_align(arc, LV_ALIGN_CENTER, 0, 0);
+    // 清除按钮的属性
+    lv_btnmatrix_clear_btn_ctrl(btnmatrix, 0, LV_BTNMATRIX_CTRL_HIDDEN);
+    // 属性为枚举型，有以下几种：
+    // LV_BUTTONMATRIX_CTRL_HIDDEN：将按钮隐藏
+    // LV_BUTTONMATRIX_CTRL_NO_REPEAT： 禁用长按
+    // LV_BUTTONMATRIX_CTRL_DISABLED：禁用按钮
+    // LV_BUTTONMATRIX_CTRL_CHECKABLE：启用按钮状态切换
+    // LV_BUTTONMATRIX_CTRL_CHECKED： 选中按钮
+    // LV_BUTTONMATRIX_CTRL_CLICK_TRIG： 1: 点击时发送 LV_EVENT_VALUE_CHANGE，0: 按下时发送 LV_EVENT_VALUE_CHANGE
+    // LV_BUTTONMATRIX_CTRL_POPOVER： 按下此按钮时在弹出窗口中显示按钮标签
+    // _LV_BUTTONMATRIX_CTRL_RESERVED_1： 保留供以后使用
+    // _LV_BUTTONMATRIX_CTRL_RESERVED_2： 保留供以后使用
+    // _LV_BUTTONMATRIX_CTRL_RESERVED_3： 保留供以后使用
+    // LV_BUTTONMATRIX_CTRL_CUSTOM_1： 自定义可用标志
+    // LV_BUTTONMATRIX_CTRL_CUSTOM_2： 自定义可用标志
 
-    // 设定范围值、当前值
-    lv_arc_set_range(arc, 0, 100);
-    lv_arc_set_value(arc, 80);
-
-    // 设定前景弧角度  参数是从135度到45度。以x轴正方向为0度，逆时针为正方向
-    lv_arc_set_bg_angles(arc, 135, 45); // 设置背景弧的角度
-    // lv_arc_set_angles(arc, 0, 270); //设置前景弧的角度
-
-    // 设定旋转角度 圆弧部件整体顺时针旋转设定的角度
-    lv_arc_set_rotation(arc, 0);
-
-    // 获取当前值
-    lv_arc_get_value(arc);
-
-    // 设定模式
-    lv_arc_set_mode(arc, LV_ARC_MODE_SYMMETRICAL); // 正常模式
-    /*
-    LV_ARC_MODE_NORMAL 正常模式：圆弧按正常方向显示
-    LV_ARC_MODE_SYMMETRICAL 对称模式：圆弧在中间点对称显示 指示器的起始值在中间
-    LV_ARC_MODE_REVERSE 反向模式：圆弧按反方向显示 起始值0在最右边 逆时针调整参数值
-    */
-
-    // 设定圆弧绘制速率 更改圆弧的值时，圆弧的变化速率
-    lv_arc_set_change_rate(arc, 90); // 单位：度/秒
+    //设置按钮互斥 某一时刻， 只允许有一个按钮处于按下不弹起状态（被选中） ， 当我们选中一个按钮之后，其他的按钮将会自动清除选中属性
+    lv_btnmatrix_set_one_checked(btnmatrix, true);
 
     // 添加回调函数
-    lv_obj_add_event_cb(arc, event_arc_cb, LV_EVENT_VALUE_CHANGED, NULL);
+    //lv_obj_add_event_cb(btnmatrix, event_btnmatrix_cb, LV_STATE_CHECKED, NULL);
+    lv_obj_add_event_cb(btnmatrix, event_btnmatrix_cb, LV_STATE_CHECKED, NULL);
+
+#elif practice4
+    //创建一个文本区域
+    lv_obj_t *ta = lv_textarea_create(lv_scr_act());
+    lv_obj_set_size(ta, 500, 200);           //设置文本区域的大小
+    lv_obj_align(ta, LV_ALIGN_TOP_MID, 0, 0); //设置文本区域的位置
+    lv_obj_set_style_text_font(ta, &lv_font_montserrat_24, LV_PART_MAIN); //设置文本区域的字体
+
+    //添加一个字符到当前光标处
+    //lv_textarea_add_char(ta, 'a');
+
+    //添加一个字符串到当前光标处
+    //lv_textarea_add_text(ta, "Hello");
+
+    //创建键盘部件
+    lv_obj_t *kb = lv_keyboard_create(lv_scr_act());
+    lv_obj_set_size(kb, 500, 200);           //设置键盘的大小
+    lv_obj_align(kb, LV_ALIGN_BOTTOM_MID, 0, 0); //设置键盘的位置
+    lv_obj_set_style_text_font(kb, &lv_font_montserrat_24, LV_PART_MAIN); //设置键盘的字体
+
+    //关联文本区域和键盘
+    lv_keyboard_set_textarea(kb, ta);
+    //可以添加回调函数，当文本框被聚焦时，关联键盘。这样可以让键盘为不同的文本框输入
+
+    //设置光标位置 测试好像只有0和LV_TEXTAREA_CURSOR_LAST有效
+    lv_textarea_set_cursor_pos(ta, 0); //LV_TEXTAREA_CURSOR_LAST为最右侧
+
+    //删除文本
+    lv_textarea_delete_char(ta); //删除光标左侧的字符
+    lv_textarea_delete_char_forward(ta); //删除光标前的字符
+
+
+    //设置模式
+    lv_textarea_set_one_line(ta, true); //设置文本区域为单行模式 整个文本框只有1行的高度
+    lv_textarea_set_password_mode(ta, false); //设置文本区域为密码模式 显示为*
+    lv_textarea_set_password_show_time(ta, 1000); //设置密码显示时间
+
+    //限制字符shuru
+    lv_textarea_set_accepted_chars(ta, "1234567890"); //只允许输入数字
+    lv_textarea_set_max_length(ta, 10); //设置最大输入长度
+
+    //设置占位符 隐式显示，当文本区域为空时显示
+    lv_textarea_set_placeholder_text(ta, "password:"); //设置占位符文本
+
+    //获取文本框文本 一般在回调函数中被调用
+    const char *text = lv_textarea_get_text(ta); //获取文本区域的文本
+
+    //对比文本内容， 当text1 = text2 时，返回0
+    lv_strcmp(text, "1234567890");
+
+    //添加事件回调函数 任何事件都会触发回调函数，在回调函数里可以根据事件类型进行相应的操作
+    lv_obj_add_event_cb(ta, event_btnmatrix_cb, LV_EVENT_ALL, NULL);
+
 
 #elif practice5
-    // 创建一个基础部件来承接线条
-    lv_obj_t *obj = lv_obj_create(lv_scr_act());
-    lv_obj_set_size(obj, 200, 200);
-    lv_obj_align(obj, LV_ALIGN_CENTER, 0, 0);
+    //创建一个键盘部件
+    lv_obj_t *kb = lv_keyboard_create(lv_scr_act());
+    lv_obj_set_size(kb, 500, 200);           //设置键盘的大小
+    lv_obj_align(kb, LV_ALIGN_CENTER, 0, 0); //设置键盘的位置
+    lv_obj_set_style_text_font(kb, &lv_font_montserrat_24, LV_PART_MAIN); //设置键盘的字体
 
-    // 创建一个线条
-    lv_obj_t *line = lv_line_create(obj);
+    //关联文本框
+    //参考文本区域部件
 
-    // 设置线条坐标点 坐标点的参考系依托于线条部件本身，(0,0)在线条部件的左上角
-    // 注意：lvgl v9后坐标数组的类型是lv_point_precise_t，v8时是lv_point_t
-    static lv_point_precise_t line_point[] = {
-        {0, 0},
-        {100, 100},
-        {100, 0},
-        {0, 100},
-        {0, 0}};
-    lv_line_set_points(line, line_point, sizeof(line_point) / sizeof(line_point[0])); // 参数2是坐标点数组，参数3是坐标点个数
+    //设置按键弹窗：按下按键时，弹出一个小窗口显示按键的标签
+    lv_keyboard_set_popovers(kb, true); //设置按键弹窗
 
-    // 设置线条的样式
-    lv_obj_set_style_line_width(line, 8, LV_PART_MAIN);                      // 设置线条的宽度
-    lv_obj_set_style_line_color(line, lv_color_hex(0x0093F5), LV_PART_MAIN); // 设置线条的颜色
-    lv_obj_set_style_line_rounded(line, true, LV_PART_MAIN);                 // 设置线条的圆角
-
-    // 设置y轴翻转
-    lv_line_set_y_invert(line, true); // 设置y轴翻转
+    //设置按钮模式
+    lv_keyboard_set_mode(kb, LV_KEYBOARD_MODE_SPECIAL); //设置键盘模式
+    //键盘模式有以下几种：
+    //LV_KEYBOARD_MODE_TEXT_LOWER：小写字母
+    //LV_KEYBOARD_MODE_TEXT_UPPER：大写字母
+    //LV_KEYBOARD_MODE_SPECIAL：特殊字符
+    //LV_KEYBOARD_MODE_NUMBER：数字
 
 #elif practice6
 
