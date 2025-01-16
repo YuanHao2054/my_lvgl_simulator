@@ -1,9 +1,8 @@
 #if LV_BUILD_TEST
 #include <stdio.h>
-#include "../../lvgl.h"
+#include "lvgl/lvgl.h"
 
-int main(void)
-{
+int main(void) {
     lv_init();
     return 0;
 }

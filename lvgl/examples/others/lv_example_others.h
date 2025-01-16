@@ -13,14 +13,13 @@ extern "C" {
 /*********************
  *      INCLUDES
  *********************/
-#include "file_explorer/lv_example_file_explorer.h"
-#include "fragment/lv_example_fragment.h"
-#include "gridnav/lv_example_gridnav.h"
-#include "ime/lv_example_ime_pinyin.h"
-#include "imgfont/lv_example_imgfont.h"
-#include "monkey/lv_example_monkey.h"
-#include "observer/lv_example_observer.h"
 #include "snapshot/lv_example_snapshot.h"
+#include "monkey/lv_example_monkey.h"
+#include "gridnav/lv_example_gridnav.h"
+#include "fragment/lv_example_fragment.h"
+#include "imgfont/lv_example_imgfont.h"
+#include "msg/lv_example_msg.h"
+#include "ime/lv_example_ime_pinyin.h"
 
 /*********************
  *      DEFINES

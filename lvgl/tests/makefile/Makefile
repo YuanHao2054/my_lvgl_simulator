@@ -1,9 +1,8 @@
-LVGL_PATH := $(CURDIR)/../..
-$(info LVGL_PATH is set to: $(LVGL_PATH))
+LVGL_DIR := $(CURDIR)/../..
 include ../../lvgl.mk
 
 CSRCS += test.c
-CFLAGS += -Werror -DLV_CONF_SKIP=1 -DLV_BUILD_TEST=1 -DLV_USE_DEV_VERSION -I$(LVGL_PATH)/..
+CFLAGS += -DLV_CONF_SKIP=1 -DLV_BUILD_TEST=1 -I$(LVGL_DIR)/..
 COBJS := $(patsubst %.c, %.o, $(CSRCS))
 
 test_file: $(COBJS)

@@ -13,7 +13,6 @@
 		"recommendations": [
 			"ms-vscode.cpptools",              // common C/C++ support
 			"ms-vscode.cpptools-themes",       // general C/C++ theme
-			"ms-vscode.cmake-tools"            // cmake support
 		],
 		"unwantedRecommendations": [
 		]
@@ -23,11 +22,12 @@
 		"files.trimTrailingWhitespace": true,
 		"files.insertFinalNewline": true,
 		"files.trimFinalNewlines": true,
-		"cmake.configureOnOpen": true,
+		"cmake.configureOnOpen": false,
 		"files.associations": {
-			"glob.h": "c",
+			"lv_demos.h": "c",
 			"lvgl.h": "c",
-			"mygui.h": "c"
+			"lv_drv_conf.h": "c",
+			"stdlib.h": "c"
 		},
 	},
 	// tasks.json section
@@ -36,10 +36,7 @@
 		"tasks": [
 			{
 				"label": "Build",
-				"command": "cmake",
-				"args": [
-					"--build", "${command:cmake.buildDirectory}"
-				],
+				"command": "make",
 				"group": {
 					"kind": "build",
 					"isDefault": true
@@ -57,16 +54,6 @@
 					}
 				}
 			},
-			{
-				"label": "Build and Run",
-				"type": "shell",
-				"command": "${workspaceFolder}/bin/main",
-				"group": {
-					"kind": "test",
-					"isDefault": true
-				},
-				"dependsOn": "Build"
-			}
 		],
 	},
 	// launch.json section
@@ -77,33 +64,11 @@
 				"name": "Debug LVGL demo with gdb",
 				"type": "cppdbg",
 				"request": "launch",
-		        "program": "${workspaceFolder}/bin/main",
+			        "program": "${workspaceFolder}/build/bin/demo",
 				"args": [],
-				"cwd": "${workspaceFolder}",
+				"cwd": "${fileDirname}",
 				"preLaunchTask": "Build",
 				"stopAtEntry": false,
-				"linux": {
-					"MIMode": "gdb",
-					"miDebuggerPath": "/usr/bin/gdb"
-				  },
-				  "osx": {
-					"MIMode": "lldb"
-				  },
-				  "windows": {
-					"MIMode": "gdb",
-					"miDebuggerPath": "C:\\MinGw\\bin\\gdb.exe"
-				  }
-			},
-			{
-				"name": "Debug LVGL demo with LLVM",
-				"type": "cppdbg",
-				"request": "launch",
-		        "program": "${workspaceFolder}/bin/main",
-				"args": [],
-				"cwd": "${workspaceFolder}",
-				"preLaunchTask": "Build",
-				"stopAtEntry": false,
-				"MIMode": "lldb"
 			},
 		],
 	},

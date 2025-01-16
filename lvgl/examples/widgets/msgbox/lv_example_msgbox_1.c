@@ -3,27 +3,17 @@
 
 static void event_cb(lv_event_t * e)
 {
-    lv_obj_t * btn = lv_event_get_target(e);
-    lv_obj_t * label = lv_obj_get_child(btn, 0);
-    LV_UNUSED(label);
-    LV_LOG_USER("Button %s clicked", lv_label_get_text(label));
+    lv_obj_t * obj = lv_event_get_current_target(e);
+    LV_LOG_USER("Button %s clicked", lv_msgbox_get_active_btn_text(obj));
 }
 
 void lv_example_msgbox_1(void)
 {
-    lv_obj_t * mbox1 = lv_msgbox_create(NULL);
+    static const char * btns[] = {"Apply", "Close", ""};
 
-    lv_msgbox_add_title(mbox1, "Hello");
-
-    lv_msgbox_add_text(mbox1, "This is a message box with two buttons.");
-    lv_msgbox_add_close_button(mbox1);
-
-    lv_obj_t * btn;
-    btn = lv_msgbox_add_footer_button(mbox1, "Apply");
-    lv_obj_add_event_cb(btn, event_cb, LV_EVENT_CLICKED, NULL);
-    btn = lv_msgbox_add_footer_button(mbox1, "Cancel");
-    lv_obj_add_event_cb(btn, event_cb, LV_EVENT_CLICKED, NULL);
-    return;
+    lv_obj_t * mbox1 = lv_msgbox_create(NULL, "Hello", "This is a message box with two buttons.", btns, true);
+    lv_obj_add_event_cb(mbox1, event_cb, LV_EVENT_VALUE_CHANGED, NULL);
+    lv_obj_center(mbox1);
 }
 
 #endif

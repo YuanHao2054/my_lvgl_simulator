@@ -17,8 +17,8 @@
 */
 
 #define practice1 0
-#define practice2 1
-#define practice3 0
+#define practice2 0
+#define practice3 1
 #define practice4 0
 #define practice5 0
 #define practice6 0
@@ -69,6 +69,10 @@ void mygui()
 
 
 #elif practice3
+    //创建一个开关
+    lv_obj_t *sw = lv_switch_create(lv_scr_act());
+    lv_obj_align(sw, LV_ALIGN_CENTER, 0, 0);
+    
 
 #elif practice4
 
