@@ -3,7 +3,7 @@
 
 void mygui();
 
-// 这个分支存放图片按钮、选择卡、平铺视图、窗口
+// 这个分支存放图片按钮、选择卡、平铺视图、窗口、消息框、微调器、表格
 
 // 图片按钮 lv_imgbtn 类似于按钮部件，不同的是，用户可以在其中设置图片
 /*
@@ -34,18 +34,61 @@ void mygui();
 */
 
 //消息框部件 lv_msgbox 可以实现一个消息框，作为一个容器，用户可以在消息框中添加标题、内容、按钮等
+/*
+组成部分：
+主体：lv_part_main
+标题：lv_part_title
+关闭按钮：close_btn
+内容：content
+按钮矩阵：btnmatrix
+*/
+
+//微调器 lv_spinbox 可以实现一个微调器，用户可以通过点击按钮或者拖动来改变数值 本质上就是一个数字文本
+/*
+组成部分：
+主体：lv_part_main
+光标：lv_part_cursor
+*/
 
 #define practice1 0
 #define practice2 0
 #define practice3 0
-#define practice4 1
+#define practice4 0
 #define practice5 0
 #define practice6 0
-#define practice7 0
+#define practice7 1
 
 // 声明图片
 LV_IMG_DECLARE(img_test);
 LV_IMG_DECLARE(imgbtn9);
+
+
+static void event_msgbox_cb(lv_event_t *e)
+{
+    lv_obj_t *target = lv_event_get_current_target(e); //获取当前目标
+    lv_obj_t *btn = lv_msgbox_get_active_btn(target); //获取当前激活的按钮
+    char *btn_text = lv_msgbox_get_active_btn_text(target); //获取当前激活的按钮的文本
+
+    if (strcmp(btn_text, "Ok") == 0)
+    {
+        printf("Ok button is pressed\n");
+    }
+    else if (strcmp(btn_text, "Cancel") == 0)
+    {
+        printf("Cancel button is pressed\n");
+    }
+    else
+    {
+        printf("Unknown button is pressed\n");
+    }
+}
+
+//表格部件 lv_table 可以实现一个表格，只能存放文本形式的内容
+/*
+组成部分：
+主体：lv_part_main
+单元格：lv_part_items
+*/
 
 void mygui()
 {
@@ -181,10 +224,60 @@ void mygui()
     lv_obj_update_layout(win); //更新布局
 
 #elif practice5
+    //创建一个消息框
+    //先创建按钮矩阵
+    static const char * btns[] = {"Ok", "Cancel", ""}; //最后一个字符串为空，表示结束
+    lv_obj_t* msgbox = lv_msgbox_create(lv_scr_act(), "Notice", "This is a message box", btns, true); //第五个参数表示是否有关闭按钮
+    lv_obj_align(msgbox, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_size(msgbox, 200, 150);
+
+    //关闭消息框
+    //lv_msgbox_close(msgbox);
+
+
+    //添加回调函数，常用事件类型：LV_EVENT_VALUE_CHANGED
+    lv_obj_add_event_cb(msgbox, event_msgbox_cb, LV_EVENT_VALUE_CHANGED, NULL);
 
 #elif practice6
+    //创建一个微调器
+    lv_obj_t *spinbox = lv_spinbox_create(lv_scr_act());
+    lv_obj_set_size(spinbox, 100, 50);
+    lv_obj_align(spinbox, LV_ALIGN_CENTER, 0, 0);
+
+    //数值增减
+    lv_spinbox_increment(spinbox); //数值增加
+    lv_spinbox_decrement(spinbox); //数值减少
+
+    //设置步进值、范围
+    lv_spinbox_set_range(spinbox, 0, 10000); //设置范围
+    lv_spinbox_set_step(spinbox, 5); //设置步进值
+
+    lv_obj_set_style_text_font(spinbox, &lv_font_montserrat_24, LV_PART_MAIN); //设置字体
+
+    //设置当前值
+    lv_spinbox_set_value(spinbox, 1000);
+
+    //设置数字格式
+    lv_spinbox_set_digit_format(spinbox, 5, 2); //第一个参数表示数值的位数，第二个参数表示小数点的位数
+
+    //获取当前值
+    int32_t val = lv_spinbox_get_value(spinbox);
+    printf("Current value is %d\n", val);
 
 #else
+    //创建一个表格
+    lv_obj_t *table = lv_table_create(lv_scr_act());
+    lv_obj_set_size(table, 300, 200);
+    lv_obj_align(table, LV_ALIGN_CENTER, 0, 0);
+
+    //设置行列数
+    lv_table_set_col_cnt(table, 3); //设置列数
+    lv_table_set_row_cnt(table, 3); //设置行数
+    //v_table_set_col_width(table, 0, 50); //设置第0列的宽度
+
+    //设置单元格的内容
+    lv_table_set_cell_value(table, 0, 0, "0,0"); //通过行列的索引
+    lv_table_set_cell_value_fmt(table, 1, 1, "%d,%d", 1, 1); //通过格式化字符串
 
 #endif
 }
