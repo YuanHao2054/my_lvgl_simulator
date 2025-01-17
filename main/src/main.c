@@ -16,6 +16,7 @@
 #include "lvgl/examples/lv_examples.h"
 #include "lvgl/demos/lv_demos.h"
 #include "mygui.h"
+
 #if USE_SDL
 #define SDL_MAIN_HANDLED /*To fix SDL's "undefined reference to WinMain" issue*/
 #include <SDL2/SDL.h>
@@ -200,7 +201,7 @@ int main(int argc, char **argv)
 
   //  user_image_demo();
 
-   mygui();
+  mygui();
 
   while (1)
   {
